@@ -4,12 +4,7 @@
     <i class="el-icon-menu icon-menu" @click="toggleSideBar"></i>
 
     <!-- 面包屑导航 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-    </el-breadcrumb>
+    <breadcrumb />
 
     <!-- 用户信息及操作 -->
     <div class="user-info-box">
@@ -22,12 +17,16 @@
 </template>
 <script>
 import { mapMutations } from "vuex";
+import breadcrumb from "@/components/Breadcrumb/";
 export default {
   name: "navBar",
   methods: {
     ...mapMutations({
       toggleSideBar: "TOGGLE_SIDE_BAR"
     })
+  },
+  components: {
+    breadcrumb
   }
 };
 </script>
