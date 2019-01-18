@@ -7,9 +7,10 @@
       :collapse="isCollapse"
       mode="vertical"
       :default-active="$route.path"
+      :router="true"
     >
       <img :class="['logo', {'logo-small':isCollapse}]" :src="isCollapse?logo.short:logo.long" alt="">
-      <siderbar-item v-for="route in routes" :key="route.children[0].path" :item="route"></siderbar-item>
+      <siderbar-item v-for="route in routes" :key="route.path" :item="route"></siderbar-item>
     </el-menu>
   </el-scrollbar>
 </template>
