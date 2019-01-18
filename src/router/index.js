@@ -19,14 +19,30 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: "/login",
+    component: Layout,
+    meta: { title: "登录", icon: "el-icon-setting" }
+  },
+  {
     path: "/r1",
     component: Layout,
     meta: { title: "导航一", icon: "el-icon-setting" },
     children: [
       {
         path: "welcome1",
-        component: () => import("@/views/welcome/welcome"),
-        meta: { title: "导航1-1", icon: "el-icon-setting" }
+        meta: { title: "导航1-1", icon: "el-icon-setting" },
+        children: [
+          {
+            path: "welcome1-1",
+            component: () => import("@/views/welcome/welcome"),
+            meta: { title: "导航1-1-1", icon: "el-icon-setting" }
+          },
+          {
+            path: "welcome2-1",
+            component: () => import("@/views/welcome/welcome"),
+            meta: { title: "导航1-2-1", icon: "el-icon-setting" }
+          }
+        ]
       },
       {
         path: "welcome2",
