@@ -7,7 +7,10 @@ import {
   Tooltip,
   scrollbar,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem
 } from "element-ui";
 
 Vue.use(Button);
@@ -18,3 +21,6 @@ Vue.use(Tooltip);
 Vue.use(scrollbar);
 Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
