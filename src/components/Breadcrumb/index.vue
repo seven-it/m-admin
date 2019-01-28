@@ -15,7 +15,12 @@
 export default {
   data() {
     return {
-      pathList: []
+      pathList: [
+        {
+          path: "/",
+          title: "仪表盘"
+        }
+      ]
     };
   },
   watch: {
@@ -24,24 +29,19 @@ export default {
     }
   },
   created() {
-    this.getBreadCrumbList();
+    this.getPathList();
   },
   methods: {
     // 获取路由记录，渲染面包屑
     getPathList() {
+      // 每次路由跳转都会重置 pathList 数组
+      this.pathList.splice(1, this.pathList.length - 1);
+
       let route = this.$route;
       let firstPath = route.matched[0].path;
 
-      // 路由列表为空，或者当前路由为根路由
-      if (!firstPath || !this.pathList.length) {
-        this.pathList.length = 0;
-        this.pathList.push({
-          path: route.fullPath,
-          title: route.meta.title
-        });
-      } else {
-        this.pathList.splice(1, this.pathList.length - 1);
-
+      // 当前路由不是根路由时， 更新面包屑
+      if (firstPath) {
         let matched = route.matched.map(item => {
           return {
             path: item.fullPath,
@@ -49,19 +49,6 @@ export default {
           };
         });
         this.pathList = this.pathList.concat(matched);
-      }
-
-      // 将路由信息保存到sessionStorage中，防止用户刷新浏览器而导致路由信息丢失
-      sessionStorage.setItem("breadCrumbList", JSON.stringify(this.pathList));
-    },
-
-    // 获取sessionStorage中保存的breadCrumbList
-    getBreadCrumbList() {
-      let breadCrumbList = JSON.parse(sessionStorage.getItem("breadCrumbList"));
-      if (breadCrumbList) {
-        this.pathList = breadCrumbList;
-      } else {
-        this.getBreadCrumbList();
       }
     }
   }
