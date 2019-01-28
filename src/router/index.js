@@ -12,7 +12,7 @@ export const constantRouterMap = [
     redirect: "/welcome",
     children: [
       {
-        path: "welcome",
+        path: "/welcome",
         component: () => import("@/views/welcome/welcome"),
         meta: { title: "仪表盘", icon: "el-icon-setting" }
       }
@@ -29,16 +29,16 @@ export const constantRouterMap = [
     meta: { title: "导航一", icon: "el-icon-setting" },
     children: [
       {
-        path: "welcome1",
+        path: "/r1/welcome1",
         meta: { title: "导航1-1", icon: "el-icon-setting" },
         children: [
           {
-            path: "welcome1-1",
+            path: "/r1/welcome1/welcome1-1",
             component: () => import("@/views/welcome/welcome"),
             meta: { title: "导航1-1-1", icon: "el-icon-setting" }
           },
           {
-            path: "welcome2-1",
+            path: "/r1/welcome1/welcome1-2",
             component: () => import("@/views/welcome/welcome"),
             meta: { title: "导航1-2-1", icon: "el-icon-setting" }
           }
