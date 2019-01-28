@@ -9,10 +9,10 @@ export const constantRouterMap = [
   {
     path: "/",
     component: Layout,
-    redirect: "/welcome",
+    redirect: "/homePage",
     children: [
       {
-        path: "/welcome",
+        path: "/homePage",
         component: () => import("@/views/welcome/welcome"),
         meta: { title: "仪表盘", icon: "el-icon-setting" }
       }
