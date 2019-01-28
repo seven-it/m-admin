@@ -6,12 +6,15 @@
     <!-- 面包屑导航 -->
     <breadcrumb />
 
-    <!-- 用户信息及操作 -->
+    <!-- 用户头像 -->
     <div class="user-info-box">
-      <img class="user-image" width="40" height="40" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547616696602&di=099dc3aa76c177248f0f8f1df1b48bca&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F83025aafa40f4bfb445d83ff084f78f0f636188f.jpg" alt="">
-      <span class="user-role">超级管理员</span>
-      <el-button type="primary" size="small" icon="el-icon-setting">设置</el-button>
-      <el-button type="primary" size="small" icon="el-icon-edit">退出</el-button>
+      <el-dropdown >
+        <img class="user-image" width="40" height="40" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547616696602&di=099dc3aa76c177248f0f8f1df1b48bca&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F83025aafa40f4bfb445d83ff084f78f0f636188f.jpg" alt="">
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>仪表盘</el-dropdown-item>
+          <el-dropdown-item>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -46,7 +49,8 @@ export default {
 .user-image {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 6px;
+  vertical-align: middle;
   cursor: pointer;
   @extend %user-margin-r;
 }
