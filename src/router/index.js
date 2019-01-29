@@ -20,7 +20,7 @@ export const constantRouterMap = [
   },
   {
     path: "/login",
-    component: Layout,
+    component: () => import("@/views/login/login"),
     meta: { title: "登录", icon: "el-icon-setting" }
   },
   {
@@ -70,6 +70,40 @@ export const constantRouterMap = [
         path: "welcome4",
         component: () => import("@/views/welcome/welcome"),
         meta: { title: "导航三", icon: "el-icon-setting" }
+      }
+    ]
+  }
+];
+
+// 权限路由组
+export const asyncRouterMap = [
+  {
+    path: "/r4",
+    component: Layout,
+    children: [
+      {
+        path: "welcome3",
+        component: () => import("@/views/welcome/welcome"),
+        meta: {
+          title: "导航五",
+          icon: "el-icon-setting",
+          role: ["admin"]
+        }
+      }
+    ]
+  },
+  {
+    path: "/r5",
+    component: Layout,
+    children: [
+      {
+        path: "welcome4",
+        component: () => import("@/views/welcome/welcome"),
+        meta: {
+          title: "导航六",
+          icon: "el-icon-setting",
+          role: ["super"]
+        }
       }
     ]
   }
