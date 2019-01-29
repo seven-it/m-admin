@@ -10,7 +10,11 @@ import {
   BreadcrumbItem,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Form,
+  FormItem,
+  Input,
+  Message
 } from "element-ui";
 
 Vue.use(Button);
@@ -24,3 +28,8 @@ Vue.use(BreadcrumbItem);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+
+Vue.prototype.$message = Message;
