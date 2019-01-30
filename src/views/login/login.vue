@@ -17,6 +17,7 @@
 
 <script>
 import { sessionStorage } from "@/utils/utils";
+
 export default {
   data() {
     return {
@@ -43,9 +44,12 @@ export default {
           });
         } else {
           this.loading = true;
+
+          // 请求登录接口，成功后保存token, 用于其它请求使用
           this.$api.login(this.form).then(res => {
-            if (res.data.data.token) {
-              sessionStorage.setItem("token", res.data.data.token);
+            let _res = res.data;
+            if (_res.data.token) {
+              sessionStorage.setItem("token", _res.data.token);
               this.$router.push("/");
             }
           });
