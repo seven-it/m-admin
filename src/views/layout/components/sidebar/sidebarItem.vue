@@ -1,14 +1,14 @@
 <template>
   <!-- 单一导航 -->
-  <el-menu-item v-if="onlyItem"  :index="onlyItem.path">
-      <i :class="onlyItem.meta.icon"></i>
-      <span slot="title">{{onlyItem.meta.title}}</span>
+  <el-menu-item v-if="onlyItem && !onlyItem.hidden"  :index="onlyItem.path">
+    <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="onlyItem.meta.icon"></i>
+    <span slot="title">{{onlyItem.meta.title}}</span>
   </el-menu-item>
 
   <!-- 多级导航 -->
-  <el-submenu v-else :index="item.path">
+  <el-submenu v-else-if="!onlyItem.hidden" :index="item.path">
     <template slot="title">
-      <i :class="item.meta.icon"></i>
+      <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="item.meta.icon"></i>
       <span slot="title">{{item.meta.title}}</span>
     </template>
 
@@ -17,7 +17,7 @@
       <siderbar-item v-if="child.children" :item="child" :key="child.path" />
 
       <el-menu-item v-else :key="child.path" :index="child.path">
-        <i :class="child.meta.icon"></i>
+        <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="child.meta.icon"></i>
         <span>{{child.meta.title}}</span>
       </el-menu-item>
     </template>
@@ -36,7 +36,12 @@ export default {
   },
   data() {
     return {
-      onlyItem: null
+      onlyItem: {
+        meta: {
+          icon: "",
+          title: ""
+        }
+      }
     };
   },
   created() {
