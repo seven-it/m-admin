@@ -1,5 +1,6 @@
 let baseUrl = {
-  a: "https://www.easy-mock.com/mock/5be23a1e64f2613b8ed04e08/example"
+  a:
+    "http://result.eolinker.com/e5QCh7me37a2178c21633f396315f93f63594dd80a9b737?uri="
 };
 
 export default baseUrl;
