@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar-wrapper">
     <!-- 菜单按钮 -->
-    <i class="el-icon-menu icon-menu" @click="toggleSideBar"></i>
+    <i class="el-icon-indent icon-menu" @click="toggleSideBar"></i>
 
     <!-- 面包屑导航 -->
     <breadcrumb />
