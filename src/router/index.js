@@ -3,6 +3,9 @@ import Router from "vue-router";
 import Layout from "@/views/layout";
 import { sessionStorage } from "@/utils/utils";
 
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+
 Vue.use(Router);
 
 /**
@@ -78,6 +81,8 @@ const router = new Router({
 // 拦截未登录用户并跳转到登陆页面
 router.beforeEach((to, from, next) => {
   const token = sessionStorage.getItem("token");
+  NProgress.start();
+  NProgress.set(0.4);
 
   /**
    * tip: 关于beforeEach无限循环的问题
@@ -90,8 +95,12 @@ router.beforeEach((to, from, next) => {
       next("/login");
     }
   }
-
   next();
+});
+
+// 全局后置钩子, 触发NProgress结束回调
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
