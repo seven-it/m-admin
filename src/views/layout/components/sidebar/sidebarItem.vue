@@ -1,12 +1,27 @@
 <template>
-  <div>
-    <template>
-    <router-link :to="item.children[0].path">
-      <el-menu-item v-if="!item.meta" :index="item.children[0].path">{{item.children[0].meta.title}}</el-menu-item>
-    </router-link>
+  <!-- 单一导航 -->
+  <el-menu-item v-if="onlyItem && !onlyItem.hidden"  :index="onlyItem.path">
+    <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="onlyItem.meta.icon"></i>
+    <span slot="title">{{onlyItem.meta.title}}</span>
+  </el-menu-item>
+
+  <!-- 多级导航 -->
+  <el-submenu v-else-if="!onlyItem.hidden" :index="item.path">
+    <template slot="title">
+      <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="item.meta.icon"></i>
+      <span slot="title">{{item.meta.title}}</span>
     </template>
-    
-  </div>
+
+    <template v-for="child in item.children">
+      <!-- 递归组件 渲染多级导航 -->
+      <siderbar-item v-if="child.children" :item="child" :key="child.path" />
+
+      <el-menu-item v-else :key="child.path" :index="child.path">
+        <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="child.meta.icon"></i>
+        <span>{{child.meta.title}}</span>
+      </el-menu-item>
+    </template>
+  </el-submenu>
 </template>
 <script>
 export default {
@@ -17,6 +32,29 @@ export default {
       default() {
         return {};
       }
+    }
+  },
+  data() {
+    return {
+      onlyItem: {
+        meta: {
+          icon: "",
+          title: ""
+        }
+      }
+    };
+  },
+  created() {
+    this.getOnlyItem();
+  },
+  methods: {
+    // 判断单个导航的边际条件
+    getOnlyItem() {
+      if (!this.item.children || this.item.children.length === 1) {
+        this.onlyItem = !this.item.children ? this.item : this.item.children[0];
+        return;
+      }
+      this.onlyItem = false;
     }
   }
 };

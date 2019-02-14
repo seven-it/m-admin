@@ -7,7 +7,14 @@ import {
   Tooltip,
   scrollbar,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Form,
+  FormItem,
+  Input,
+  Message
 } from "element-ui";
 
 Vue.use(Button);
@@ -18,3 +25,11 @@ Vue.use(Tooltip);
 Vue.use(scrollbar);
 Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+
+Vue.prototype.$message = Message;
