@@ -29,7 +29,7 @@ export const constantRouterMap = [
       {
         path: "/homePage",
         component: () => import("@/views/welcome/welcome"),
-        meta: { title: "仪表盘", icon: "el-icon-setting" }
+        meta: { title: "仪表盘", icon: "el-icon-yibiaopan" }
       }
     ]
   },
