@@ -6,9 +6,9 @@
   </el-menu-item>
 
   <!-- 多级导航 -->
-  <el-submenu v-else-if="!onlyItem.hidden" :index="item.path">
+  <el-submenu v-else-if="!item.hidden" :index="item.path">
     <template slot="title">
-      <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="item.meta.icon"></i>
+      <i v-if="item.meta && item.meta.icon" :class="item.meta.icon"></i>
       <span slot="title">{{item.meta.title}}</span>
     </template>
 
@@ -17,7 +17,7 @@
       <siderbar-item v-if="child.children" :item="child" :key="child.path" />
 
       <el-menu-item v-else :key="child.path" :index="child.path">
-        <i v-if="onlyItem.meta && onlyItem.meta.icon" :class="child.meta.icon"></i>
+        <i v-if="child.meta && child.meta.icon" :class="child.meta.icon"></i>
         <span>{{child.meta.title}}</span>
       </el-menu-item>
     </template>
