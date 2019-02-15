@@ -50,10 +50,18 @@ export const constantRouterMap = [
         }
       },
       {
-        path: "/basicTable1",
-        component: () => import("@/views/table/basicTable"),
+        path: "/inline-edit-table",
+        component: () => import("@/views/table/inlineEditTable"),
         meta: {
-          title: "基础表格",
+          title: "Table内编辑",
+          icon: "el-icon-setting"
+        }
+      },
+      {
+        path: "/drag-table",
+        component: () => import("@/views/table/dragTable"),
+        meta: {
+          title: "拖拽Table",
           icon: "el-icon-setting"
         }
       }
