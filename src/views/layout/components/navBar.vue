@@ -1,33 +1,35 @@
 <template>
   <div class="nav-bar-wrapper">
     <!-- 菜单按钮 -->
-    <i class="el-icon-menu icon-menu" @click="toggleSideBar"></i>
+    <i class="el-icon-indent icon-menu" @click="toggleSideBar"></i>
 
     <!-- 面包屑导航 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{ path: '/' }">活动管理</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-    </el-breadcrumb>
+    <breadcrumb />
 
-    <!-- 用户信息及操作 -->
+    <!-- 用户头像 -->
     <div class="user-info-box">
-      <img class="user-image" width="40" height="40" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547616696602&di=099dc3aa76c177248f0f8f1df1b48bca&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F83025aafa40f4bfb445d83ff084f78f0f636188f.jpg" alt="">
-      <span class="user-role">超级管理员</span>
-      <el-button type="primary" size="small" icon="el-icon-setting">设置</el-button>
-      <el-button type="primary" size="small" icon="el-icon-edit">退出</el-button>
+      <el-dropdown >
+        <img class="user-image" width="40" height="40" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547616696602&di=099dc3aa76c177248f0f8f1df1b48bca&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F83025aafa40f4bfb445d83ff084f78f0f636188f.jpg" alt="">
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>仪表盘</el-dropdown-item>
+          <el-dropdown-item>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
 <script>
 import { mapMutations } from "vuex";
+import breadcrumb from "@/components/Breadcrumb/";
 export default {
   name: "navBar",
   methods: {
     ...mapMutations({
       toggleSideBar: "TOGGLE_SIDE_BAR"
     })
+  },
+  components: {
+    breadcrumb
   }
 };
 </script>
@@ -47,7 +49,8 @@ export default {
 .user-image {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 6px;
+  vertical-align: middle;
   cursor: pointer;
   @extend %user-margin-r;
 }

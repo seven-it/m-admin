@@ -1,0 +1,13 @@
+/* breadcrumb fade */
+.breadcrumb-enter,
+.breadcrumb-leave {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+    transition: all .5s;
+}
+
+
