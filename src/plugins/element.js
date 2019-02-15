@@ -14,7 +14,11 @@ import {
   Form,
   FormItem,
   Input,
-  Message
+  Message,
+  Table,
+  TableColumn,
+  Dialog,
+  DatePicker
 } from "element-ui";
 
 Vue.use(Button);
@@ -31,5 +35,9 @@ Vue.use(DropdownItem);
 Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(Input);
+Vue.use(Table);
+Vue.use(TableColumn);
+Vue.use(Dialog);
+Vue.use(DatePicker);
 
 Vue.prototype.$message = Message;
