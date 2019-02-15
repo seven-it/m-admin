@@ -34,6 +34,32 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: "/table",
+    component: Layout,
+    meta: {
+      title: "Table",
+      icon: "el-icon-setting"
+    },
+    children: [
+      {
+        path: "/basicTable",
+        component: () => import("@/views/table/basicTable"),
+        meta: {
+          title: "基础表格",
+          icon: "el-icon-setting"
+        }
+      },
+      {
+        path: "/basicTable1",
+        component: () => import("@/views/table/basicTable"),
+        meta: {
+          title: "基础表格",
+          icon: "el-icon-setting"
+        }
+      }
+    ]
+  },
+  {
     path: "/login",
     component: () => import("@/views/login/login"),
     hidden: true
