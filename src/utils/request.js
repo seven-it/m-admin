@@ -2,7 +2,7 @@ import Axios from "axios";
 import { sessionStorage } from "./utils";
 
 const service = Axios.create({
-  timeout: 5000,
+  timeout: 50000,
   headers: { "Content-Type": "application/x-www-form-urlencoded" }
 });
 
