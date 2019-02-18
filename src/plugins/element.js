@@ -18,7 +18,8 @@ import {
   Table,
   TableColumn,
   Dialog,
-  DatePicker
+  DatePicker,
+  Loading
 } from "element-ui";
 
 Vue.use(Button);
@@ -39,5 +40,7 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Dialog);
 Vue.use(DatePicker);
+
+Vue.use(Loading.directive);
 
 Vue.prototype.$message = Message;
