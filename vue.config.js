@@ -6,7 +6,8 @@ function resolve(dir) {
 const env = process.env.NODE_ENV;
 
 let options = {
-  publicPath: "/dj-template-admin/dist/", // 生产环境下文件路径
+  publicPath: "/dj-template-admin/admin/", // 生产环境下文件路径
+  outputDir: "admin",
   productionSourceMap: false
 };
 
