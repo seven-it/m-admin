@@ -1,13 +1,16 @@
 <template>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <transition-group name="breadcrumb">
-        <el-breadcrumb-item 
-          v-for="item in pathList" 
-          :key="item.title"
-          :to="item.path"
-        >
+        <template v-for="item in pathList">
+          <el-breadcrumb-item 
+            v-if="item.title"
+            :key="item.title"
+            :to="item.path"
+          >
           {{item.title}}
         </el-breadcrumb-item>
+        </template>
+        
       </transition-group>
     </el-breadcrumb>
 </template>
