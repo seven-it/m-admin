@@ -134,7 +134,6 @@ export default {
       });
     },
     dialogConfirm(form) {
-      console.log(form);
       this.tableData.forEach(val => {
         if (val.id === form.id) {
           val = form;
