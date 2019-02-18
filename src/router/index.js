@@ -25,6 +25,7 @@ export const constantRouterMap = [
     path: "/",
     component: Layout,
     redirect: "/homePage",
+    onlyMenu: true,
     children: [
       {
         path: "/homePage",
@@ -64,6 +65,58 @@ export const constantRouterMap = [
           title: "拖拽Table",
           icon: "el-icon-setting"
         }
+      },
+      {
+        path: "/tree-table",
+        component: () => import("@/views/table/treeTable"),
+        meta: {
+          title: "树形表格",
+          icon: "el-icon-setting"
+        }
+      }
+    ]
+  },
+  {
+    path: "/picture",
+    component: Layout,
+    onlyMenu: true,
+    children: [
+      {
+        path: "/picture-upload",
+        component: () => import("@/views/pictureUpload/index"),
+        meta: { title: "头像上传", icon: "el-icon-yibiaopan" }
+      }
+    ]
+  },
+  {
+    path: "/level",
+    component: Layout,
+    meta: {
+      title: "多级菜单",
+      icon: "el-icon-setting"
+    },
+    children: [
+      {
+        path: "/level-1-1",
+        component: () => import("@/views/levelMenu/level-1-1"),
+        meta: { title: "level-1-1", icon: "el-icon-yibiaopan" }
+      },
+      {
+        path: "/level-2",
+        component: () => import("@/views/levelMenu/level-2-1"),
+        meta: { title: "level-2", icon: "el-icon-yibiaopan" },
+        children: [
+          {
+            path: "/level-2-1",
+            component: () => import("@/views/levelMenu/level-2-2"),
+            meta: { title: "level-2-2", icon: "el-icon-yibiaopan" }
+          }
+        ]
+      },
+      {
+        path: "/level-3-2",
+        component: () => import("@/views/levelMenu/level-3-2"),
+        meta: { title: "level-3-2", icon: "el-icon-yibiaopan" }
       }
     ]
   },
