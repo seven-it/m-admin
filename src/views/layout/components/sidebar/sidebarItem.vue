@@ -50,7 +50,6 @@ export default {
   methods: {
     // 判断单个导航的边际条件
     getOnlyItem() {
-      console.log();
       if (this.item.onlyMenu) {
         this.onlyItem = !this.item.children ? this.item : this.item.children[0];
 
