@@ -2,7 +2,10 @@
   <div class="app-main-wrapper">
     <el-scrollbar class="app-main-scroll">
       <section class="app-main-container">
-        <router-view />
+        <transition name="page" mode="out-in">
+          <router-view />
+        </transition>
+        
       </section>
     </el-scrollbar>
   </div>

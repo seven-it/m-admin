@@ -10,4 +10,17 @@
     transition: all .5s;
 }
 
+/* 路由过渡动画 */
+.page-enter {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+.page-leave-to {
+    opacity: 0;
+    transform: translateX(40px);
+}
+.page-enter-active,
+.page-leave-active {
+    transition: all .5s ;
+}
 
