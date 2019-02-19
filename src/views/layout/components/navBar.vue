@@ -8,11 +8,11 @@
 
     <!-- 用户头像 -->
     <div class="user-info-box">
-      <el-dropdown >
+      <el-dropdown @command="handleCommand">
         <img class="user-image" width="40" height="40" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547616696602&di=099dc3aa76c177248f0f8f1df1b48bca&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F83025aafa40f4bfb445d83ff084f78f0f636188f.jpg" alt="">
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>仪表盘</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item command="/homePage">仪表盘</el-dropdown-item>
+          <el-dropdown-item command="/login">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -24,6 +24,9 @@ import breadcrumb from "@/components/Breadcrumb/";
 export default {
   name: "navBar",
   methods: {
+    handleCommand(command) {
+      this.$router.push(command);
+    },
     ...mapMutations({
       toggleSideBar: "TOGGLE_SIDE_BAR"
     })
