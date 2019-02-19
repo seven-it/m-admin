@@ -39,39 +39,35 @@ export const constantRouterMap = [
     component: Layout,
     meta: {
       title: "Table",
-      icon: "el-icon-setting"
+      icon: "el-icon-table"
     },
     children: [
       {
         path: "/basicTable",
         component: () => import("@/views/table/basicTable"),
         meta: {
-          title: "基础表格",
-          icon: "el-icon-setting"
+          title: "基础表格"
         }
       },
       {
         path: "/inline-edit-table",
         component: () => import("@/views/table/inlineEditTable"),
         meta: {
-          title: "Table内编辑",
-          icon: "el-icon-setting"
+          title: "Table内编辑"
         }
       },
       {
         path: "/drag-table",
         component: () => import("@/views/table/dragTable"),
         meta: {
-          title: "拖拽Table",
-          icon: "el-icon-setting"
+          title: "拖拽Table"
         }
       },
       {
         path: "/tree-table",
         component: () => import("@/views/table/treeTable"),
         meta: {
-          title: "树形表格",
-          icon: "el-icon-setting"
+          title: "树形表格"
         }
       }
     ]
@@ -84,7 +80,32 @@ export const constantRouterMap = [
       {
         path: "/picture-upload",
         component: () => import("@/views/pictureUpload/index"),
-        meta: { title: "头像上传", icon: "el-icon-yibiaopan" }
+        meta: { title: "头像上传", icon: "el-icon-cloud-upload" }
+      }
+    ]
+  },
+
+  {
+    path: "/rich-text",
+    component: Layout,
+    onlyMenu: true,
+    children: [
+      {
+        path: "/rich-text-editor",
+        component: () => import("@/views/richText/editor"),
+        meta: { title: "富文本编辑器", icon: "el-icon-export" }
+      }
+    ]
+  },
+  {
+    path: "/icons",
+    component: Layout,
+    onlyMenu: true,
+    children: [
+      {
+        path: "/icon-index",
+        component: () => import("@/views/icons/icons"),
+        meta: { title: "自定义图标", icon: "el-icon-info" }
       }
     ]
   },
@@ -93,30 +114,42 @@ export const constantRouterMap = [
     component: Layout,
     meta: {
       title: "多级菜单",
-      icon: "el-icon-setting"
+      icon: "el-icon-align-right"
     },
     children: [
       {
         path: "/level-1-1",
         component: () => import("@/views/levelMenu/level-1-1"),
-        meta: { title: "level-1-1", icon: "el-icon-yibiaopan" }
+        meta: { title: "level-1-1" }
       },
       {
         path: "/level-2",
         component: () => import("@/views/levelMenu/level-2-1"),
-        meta: { title: "level-2", icon: "el-icon-yibiaopan" },
+        meta: { title: "level-2" },
         children: [
           {
             path: "/level-2-1",
             component: () => import("@/views/levelMenu/level-2-2"),
-            meta: { title: "level-2-2", icon: "el-icon-yibiaopan" }
+            meta: { title: "level-2-2" }
           }
         ]
       },
       {
         path: "/level-3-2",
         component: () => import("@/views/levelMenu/level-3-2"),
-        meta: { title: "level-3-2", icon: "el-icon-yibiaopan" }
+        meta: { title: "level-3-2" }
+      }
+    ]
+  },
+  {
+    path: "/404",
+    component: Layout,
+    onlyMenu: true,
+    children: [
+      {
+        path: "/page-404",
+        component: () => import("@/views/404/index"),
+        meta: { title: "错误页面", icon: "el-icon-error" }
       }
     ]
   },
