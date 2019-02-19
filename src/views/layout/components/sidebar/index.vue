@@ -9,7 +9,8 @@
       :default-active="$route.path"
       :router="true"
     >
-      <img :class="['logo', {'logo-small':isCollapse}]" :src="isCollapse?logo.short:logo.long" alt="">
+      <img :class="['logo', {'logo-small':isCollapse}]" src="../../../../assets/images/logo.png" v-show="!isCollapse" alt="">
+      <img class="logo logo-small" :src="logo.short" v-show="isCollapse" alt="">
       <siderbar-item v-for="route in routes" :key="route.path" :item="route"></siderbar-item>
     </el-menu>
   </el-scrollbar>
@@ -22,11 +23,11 @@ export default {
   name: "sidebar",
   data() {
     return {
+      publicPath: process.env.BASE_URL,
       logo: {
-        long:
-          "https://upload.wikimedia.org/wikipedia/zh/thumb/6/61/ONE_PIECE_Logo.svg/1200px-ONE_PIECE_Logo.svg.png",
+        long: `../../../../assets/images/logo.png`,
         short:
-          "https://banner2.kisspng.com/20180406/kfq/kisspng-monkey-d-luffy-one-piece-usopp-logo-pirate-hat-5ac78c56227c83.5516273415230270301413.jpg"
+          "https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/vue/vue.png"
       }
     };
   },
